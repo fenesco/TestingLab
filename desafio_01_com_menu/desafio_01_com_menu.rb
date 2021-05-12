@@ -23,7 +23,7 @@ ao final removendo os espaços em branco com o método "strip"
 =end
 def funcao(string, array)
   regex = Regexp.new("([#{array.join}])(.*)")
-  string[0..(string =~ regex) - 1].strip
+  (string =~ regex).nil? ? string : string[0..(string =~ regex) - 1].strip
 end
 
 =begin
@@ -45,8 +45,12 @@ loop do
     puts('Digite a frase:')
     texto = gets.chomp
     puts("Texto selecionado: #{texto}",'')
-    puts('Digite os caracteres a serem excluidos:')
-    caracteres = [gets.chomp]
+    caracteres = []
+    while caracteres.empty?
+      puts('Digite os caracteres a serem excluidos:')
+      caracteres = gets.chomp.split
+      puts('Digite ao menos um caractere especial!') if caracteres.empty?
+    end
     puts("Caracteres excluidos: #{caracteres.join}",'')
     puts('Iniciando sanitizacao da frase...')
     puts("Frase sanitizada: #{funcao(texto, caracteres)}")

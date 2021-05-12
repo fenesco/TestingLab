@@ -7,5 +7,5 @@ Funcionalidade: api-web | Validar o endpoint enumerations_VRPAT
   Para validar a funcionalidade do mesmo
 
   Cenário: Validar os estabelecimentos do endpoint api-web_comum_enumerations_VRPAT.get
-    Quando chamar o endpoint api-web_comum_enumerations_VRPAT.get
-    Então validar o retorno do endpoint api-web_enumerations_VRPAT.get
+    Quando chamar o endpoint api-web.get
+    Então validar o retorno do endpoint api-web.get
