@@ -27,4 +27,4 @@ Após isso podemos executar o teste via comando:
 > cucumber
 
 ## Desafio 03:
-Foi criado o aruivo Jenkinsfile em Groovy
+Foi criado o arquivo Jenkinsfile em Groovy
