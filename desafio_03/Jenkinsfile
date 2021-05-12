@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    environment {
+        MY_ENV = 'Ricardo Martins'
+    }
+    stages {
+        stage('Criando o diretório, arquivo e listando os arquivos') {
+            steps {
+                bat label: 'create_dir', script: 'mkdir test_directory'
+                dir('test_directory') {
+                    writeFile file: 'text_file.txt', text: ''
+                    bat label: 'list_files', script: 'ls'
+                }
+            }
+        }
+        stage('Escrevendo o valor contido na váriavel MY_ENV dentro do arquivo') {
+            steps {
+                dir('test_directory') {
+                    writeFile file:'text_file.txt', text:"${MY_ENV}"
+                }
+            }
+        }
+    }
+    post {
+        always{
+            dir ('test_directory') {
+                deleteDir()
+            }
+        }
+    }
+}
