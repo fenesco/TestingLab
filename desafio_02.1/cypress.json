@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://vr.com.br",
+    "testFiles": "**/features/*.js",
+    "viewportWidth": 1000,
+    "viewportHeight": 660
+}
